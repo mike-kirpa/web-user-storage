@@ -1,0 +1,11 @@
+{{ define "error" }}
+
+{{ with .Errors.Email  }}
+<p class="error">{{ . }}</p>
+{{ end }}
+{{ with .Errors.Name }}
+<p class="error">{{ . }}</p>
+{{ end }}
+<a href="/">Back</a>"
+
+{{end}}

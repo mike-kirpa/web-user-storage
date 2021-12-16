@@ -1,3 +1,5 @@
+{{ define "index"}}
+
 <!DOCTYPE HTML>
 <html>
  <head>
@@ -5,9 +7,12 @@
   <title>Table of users</title>
  </head>
  <body>
+  
+
+
 <h1><center>"Welcome to the Club!"</center></h1>
 
-<form action="/" method="post">
+<form action="/" method="POST" accept-charset="utf-8" novalidate>
     <div>
       <label for="name">Name</label>
       <input name="name" id="name" value="" placeholder="Name">
@@ -18,20 +23,25 @@
     </div>
     <div>
       <button>Add</button>
+      <button  type="reset">Clear</button>
     </div>
   </form>
+  
+  <center><table border="1">
+    <caption>Members</caption>
+    <tr>
+     <th>#</th>
+     <th>Name</th>
+     <th>Email</th>
+     <th>Registration date</th>
+    </tr>
+    {{ range .}}
+    <tr><td>{{ .Index }}</td><td>{{ .Name }}</td><td>{{ .Email }}</td><td>{{ .Dates }}</td></tr>
+    {{ end }}
+ </table></center>
 
-<center><table border="1">
-   <caption>Members</caption>
-   <tr>
-    <th>#</th>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Registration date</th>
-   </tr>
-   {{ range .}}
-   <tr><td>{{ .Index }}</td><td>{{ .Name }}</td><td>{{ .Email }}</td><td>{{ .Dates }}</td></tr>
-   {{ end }}
-</table></center>
 </body>
 </html>
+  
+  {{ end }}
+
